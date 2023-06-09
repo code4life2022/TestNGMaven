@@ -52,9 +52,15 @@ public class BrowserUtils {
     }
 
     public static String getScreenshot(String name ) throws IOException {
+        System.out.println("OS name = "+ System.getProperty("os.name"));
+        System.out.println("OS name = "+ System.getProperty("os.name"));
+        System.out.println("OS name = "+ System.getProperty("os.name"));
+        System.out.println("OS name = "+ System.getProperty("os.name"));
+        System.out.println("OS name = "+ System.getProperty("os.name"));
 
         Date d = new Date();
         name = d.toString().replace(":", "_").replace(" ", "_");
+        System.out.println("OS name = "+ System.getProperty("os.name"));
 
         //name = new Date().toString().replace(" ", "_").replace("-", "_")+name;
        // String path ="";
