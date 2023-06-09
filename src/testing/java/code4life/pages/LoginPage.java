@@ -36,7 +36,7 @@ public class LoginPage extends BasePage {
     public void sendUsername(String UsName) throws IOException {
         Driver.getDriver().findElement(userName).sendKeys(UsName);
 
-
+        Driver.getDriver().findElement(password).sendKeys(pass);
     }
 
     public void sendPassword(String pass) throws IOException {
@@ -48,11 +48,11 @@ public class LoginPage extends BasePage {
     public void clickLoginBtn () throws IOException {
         //Driver.getDriver().findElement(loginBtn).click();
         wait.until(ExpectedConditions.elementToBeClickable(Driver.getDriver().findElement(loginBtn))).click();
-
+Driver.getDriver().findElement(password).sendKeys(pass);
     }
 
     public String returnUserNameLabelText() throws IOException {
-
+Driver.getDriver().findElement(password).sendKeys(pass);
 
        return wait.until(ExpectedConditions.elementToBeClickable(Driver.getDriver().
                findElement(userNameLists))).getText();
