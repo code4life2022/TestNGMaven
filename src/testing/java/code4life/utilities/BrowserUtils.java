@@ -78,6 +78,16 @@ public class BrowserUtils {
         File source = takesScreenshot.getScreenshotAs(OutputType.FILE);
         File destination = new File(path);
         FileUtils.copyFile(source, destination);
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
+        System.out.println("Screenshot is :     ");
 
 
         return path;
