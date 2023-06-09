@@ -11,13 +11,15 @@ public class Annotations {
     WebDriver driver;
 
     @BeforeSuite
-    public void runBeforeEntireSuite(){
+    public void runBeforeEntireSuite()
+    {
         System.out.println("@BeforeSuite runs before entire test suite only once ");
     }
 
 
     @BeforeSuite
     public void runAfterEntireSuite(){
+
         System.out.println("@AfterSuite runs after entire test suite only once ");
     }
     @BeforeTest
@@ -27,11 +29,13 @@ public class Annotations {
 
     @AfterTest
     public void runAfterTest(){
+
         System.out.println("This runs after entire test cases only once ");
     }
 
     @BeforeClass
     public void runBeforeClass(){
+
         System.out.println("This runs before the entire class only one time ");
     }
 

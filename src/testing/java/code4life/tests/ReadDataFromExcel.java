@@ -43,7 +43,7 @@ public class ReadDataFromExcel {
 
         int numOfRows = workSheet.getLastRowNum();
         System.out.println("Total number of rows  = "+ numOfRows+"\n");
-        System.out.println("printing all values from the two columns:: \n");
+        System.out.println("printing all values from all columns:: \n");
 
         for (int row = 0; row <workSheet.getPhysicalNumberOfRows() ; row++) {
             for (int cell = 0; cell < workSheet.getRow(row).getLastCellNum(); cell++) {

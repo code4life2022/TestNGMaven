@@ -1,6 +1,7 @@
 package code4life.pages;
 
 import code4life.base.BasePage;
+import code4life.utilities.ConfigurationReader;
 import code4life.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -63,5 +64,22 @@ public class LoginPage extends BasePage {
         return wait.until(ExpectedConditions.elementToBeClickable(Driver.getDriver().
                 findElement(passwordList))).getText();
     }
+    public void login(String username, String pass) throws IOException {
+        wait.until(ExpectedConditions.visibilityOf(Driver.
+                getDriver().findElement(userName))).sendKeys(username);
+
+        wait.until(ExpectedConditions.visibilityOf(Driver.
+                getDriver().findElement(password))).sendKeys(pass);
+
+    }
+    public void login() throws IOException {
+        wait.until(ExpectedConditions.visibilityOf(Driver.
+                getDriver().findElement(userName))).sendKeys(ConfigurationReader.getProperties("user"));
+
+        wait.until(ExpectedConditions.visibilityOf(Driver.
+                getDriver().findElement(password))).sendKeys(ConfigurationReader.getProperties("pass"));
+
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package code4life.tests;
 
+import code4life.base.TestBase;
 import code4life.utilities.BrowserUtils;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
@@ -16,23 +17,23 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class WebTable {
+public class WebTable  extends TestBase {
     WebDriver driver;
-    @BeforeMethod
-    public void beforeSetup(){
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        driver.manage().window().maximize();
-        driver.get("https://the-internet.herokuapp.com/tables");
-        System.out.println("************************");
-    }
-    @AfterMethod
-    public void afterSetup(){
-        BrowserUtils.wait(4);
-        driver.quit();
-
-    }
+//    @BeforeMethod
+//    public void beforeSetup(){
+//        WebDriverManager.chromedriver().setup();
+//        driver = new ChromeDriver();
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
+//        driver.manage().window().maximize();
+//        driver.get("https://the-internet.herokuapp.com/tables");
+//        System.out.println("************************");
+//    }
+//    @AfterMethod
+//    public void afterSetup(){
+//        BrowserUtils.wait(4);
+//        driver.quit();
+//
+//    }
 
     @Test
     public void printEntireTableData(){
@@ -84,6 +85,7 @@ public class WebTable {
     @Test
     public void printDataFromRow(){
         ////table[1]/tbody//td[text()='jdoe@hotmail.com']
+
         List<WebElement> dataFromRow = driver.findElements(By.xpath("//table[1]/tbody/tr[1]/td"));
         for (WebElement cellRow: dataFromRow
              ) {

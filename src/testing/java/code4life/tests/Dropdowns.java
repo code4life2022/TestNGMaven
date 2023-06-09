@@ -38,7 +38,7 @@ public class Dropdowns {
         wait.until(ExpectedConditions.elementToBeClickable(selectOne)).click();
         WebElement MrValue = driver.findElement(By.xpath("//div[text()='Mr.']"));
         wait.until(ExpectedConditions.elementToBeClickable(MrValue)).click();
-
+// get the first selected value from dropdown with getFirstSelectedOption().getText()
         Select selectCar = new Select(driver.findElement(By.id("cars")));
         selectCar.selectByVisibleText("Opel");
         String expect = selectCar.getFirstSelectedOption().getText();
@@ -50,7 +50,7 @@ public class Dropdowns {
         }
 
         System.out.println("***************************");
-
+    //get all selected values from dropdown with method getAllSelectedOptions()
         Select multiCars = new Select(driver.findElement(By.id("cars")));
         multiCars.selectByVisibleText("Volvo");
         multiCars.selectByVisibleText("Saab");
