@@ -44,9 +44,9 @@ public class TestBase {
         String URL = ConfigurationReader.getProperties("url2");
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().get(URL);
-//        htmlReporter = new ExtentHtmlReporter(reportPath);
-//        reports.attachReporter(htmlReporter);
-//        htmlReporter.config().setReportName("HTML REPORT DEMO");
+       htmlReporter = new ExtentHtmlReporter(reportPath);
+       reports.attachReporter(htmlReporter);
+       htmlReporter.config().setReportName("HTML REPORT DEMO");
 
 
     }
@@ -61,10 +61,21 @@ public class TestBase {
 
     @BeforeMethod
     public void setup() throws IOException {
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        driver.manage().window().maximize();
-//        driver.get("https://www.saucedemo.com/");
+    
+
+       WebDriverManager.chromedriver().setup();
+       driver = new ChromeDriver();
+       driver.manage().window().maximize();
+       driver.get("https://www.saucedemo.com/");
+         System.out.println("love "); System.out.println("love ");
+         System.out.println("love ");
+         System.out.println("love ");
+         System.out.println("love ");
+         System.out.println("love ");
+         System.out.println("love "); System.out.println("love ");
+         System.out.println("love ");
+         System.out.println("love ");
+         System.out.println("love ");
 
         String URL = ConfigurationReader.getProperties("url2");
         Driver.getDriver().manage().window().maximize();
@@ -73,19 +84,19 @@ public class TestBase {
 
     }
 
-//    @AfterMethod(alwaysRun = true)
-//    public void teardown(ITestResult iTestResult) throws IOException {
-//        if (iTestResult.getStatus() == ITestResult.FAILURE) {
-//            String screenShotPath = BrowserUtils.getScreenshot(iTestResult.getName());
-//            test.fail(iTestResult.getName());
-//            test.addScreenCaptureFromPath(screenShotPath, "Failed");
-//            test.fail(iTestResult.getThrowable());
-//        }
-//
-//
-//        Driver.closeDriver();
-//    }
-//}
+   @AfterMethod(alwaysRun = true)
+   public void teardown(ITestResult iTestResult) throws IOException {
+       if (iTestResult.getStatus() == ITestResult.FAILURE) {
+           String screenShotPath = BrowserUtils.getScreenshot(iTestResult.getName());
+           test.fail(iTestResult.getName());
+           test.addScreenCaptureFromPath(screenShotPath, "Failed");
+           test.fail(iTestResult.getThrowable());
+       }
+
+
+       Driver.closeDriver();
+   }
+}
 
     @AfterClass
     public void tearDown(){
