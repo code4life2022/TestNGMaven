@@ -18,9 +18,13 @@ public class ActionsDemo {
         JavascriptExecutor executor = (JavascriptExecutor)driver;
         executor.executeScript("window.scrollBy(0,700)");
         WebElement interactions = driver.findElement(By.xpath("//h5[text()='Interactions']"));
+
+        //creating object of the action class
         Actions actions = new Actions(driver);
         actions.moveToElement(interactions).click().build().perform();
         executor.executeScript("window.scrollBy(0,500)");
+
+        //Performing drag and drop by using dragAndDrop method
         WebElement droppable = driver.findElement(By.xpath("//span[text()='Droppable']"));
         actions.moveToElement(droppable).click().build().perform();
         WebElement dragMe = driver.findElement(By.id("draggable"));
@@ -33,7 +37,7 @@ public class ActionsDemo {
         System.out.println("After drag and drop = "+ color2);
 
 
-        //Second way to do drag and drop
+        //Second way to do drag and drop  --> Elements-->>interactions--> droppable
         WebElement accept = driver.findElement(By.id("droppableExample-tab-accept"));
         actions.moveToElement(accept).click().build().perform();
         WebElement acceptable = driver.findElement(By.xpath("//div[@id='acceptable']"));
@@ -49,12 +53,14 @@ public class ActionsDemo {
         WebElement fullName = driver.findElement(By.id("userName"));
 
         actions.keyDown(fullName, Keys.SHIFT)
-                        .sendKeys(fullName, "hillary clinton").build().perform();
+                        .sendKeys(fullName, "Hillary Clinton").build().perform();
         WebElement currentAddress = driver.findElement(By.id("currentAddress"));
         actions.keyDown(currentAddress, Keys.SHIFT)
                         .sendKeys(currentAddress, "This is my current address  \n")
                                 .keyUp(currentAddress, Keys.SHIFT)
-                                        .sendKeys("Brendan court Troy New York ").doubleClick().contextClick()
+                                        .sendKeys("Brendan court Troy New York ").
+
+                doubleClick().contextClick()
                         .build().perform();
 
 

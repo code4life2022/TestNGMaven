@@ -5,7 +5,8 @@ import code4life.utilities.ConfigurationReader;
 import code4life.utilities.Driver;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
 
@@ -13,14 +14,18 @@ import java.io.IOException;
 
 public class TestBase {
 
-    protected ExtentReports reports;
-    protected ExtentHtmlReporter htmlReporter;
+    protected ExtentReports extent;
+    ExtentSparkReporter spark;
     protected ExtentTest test;
 
 
+
     @BeforeTest
-    public void setupTest() {
-        reports = new ExtentReports();
+    public void setupTest() throws IOException {
+        spark.config().setTheme(Theme.DARK);
+        spark.config().setDocumentTitle("MyReport");
+        extent = new ExtentReports();
+
         String reportPath = "";
         if (System.getProperty("os.name").equalsIgnoreCase("Mac OS X")) {
 
@@ -32,9 +37,16 @@ public class TestBase {
             reportPath = System.getProperty("user.dir") + "\\test-output\\report.html";
 
         }
-        htmlReporter = new ExtentHtmlReporter(reportPath);
-        reports.attachReporter(htmlReporter);
-        htmlReporter.config().setReportName("HTML REPORT DEMO");
+
+        spark = new ExtentSparkReporter("target/Spark.html");
+        extent.attachReporter(spark);
+
+        String URL = ConfigurationReader.getProperties("url2");
+        Driver.getDriver().manage().window().maximize();
+        Driver.getDriver().get(URL);
+//        htmlReporter = new ExtentHtmlReporter(reportPath);
+//        reports.attachReporter(htmlReporter);
+//        htmlReporter.config().setReportName("HTML REPORT DEMO");
 
 
     }
@@ -42,7 +54,8 @@ public class TestBase {
 
     @AfterTest
     public void tearDownTest() {
-        reports.flush();
+        extent.flush();
+        Driver.closeDriver();
 
     }
 
@@ -53,30 +66,29 @@ public class TestBase {
 //        driver.manage().window().maximize();
 //        driver.get("https://www.saucedemo.com/");
 
-        String URL = ConfigurationReader.getProperties("url");
+        String URL = ConfigurationReader.getProperties("url2");
         Driver.getDriver().manage().window().maximize();
         Driver.getDriver().get(URL);
 
 
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void teardown(ITestResult iTestResult) throws IOException {
-        if (iTestResult.getStatus() == ITestResult.FAILURE) {
-            String screenShotPath = BrowserUtils.getScreenshot(iTestResult.getName());
-            test.fail(iTestResult.getName());
-            test.addScreenCaptureFromPath(screenShotPath, "Failed");
-
-            test.fail(iTestResult.getThrowable());
-        }
-
-
-        Driver.closeDriver();
-    }
-}
-
-//    @AfterClass
-//    public void tearDown(){
+//    @AfterMethod(alwaysRun = true)
+//    public void teardown(ITestResult iTestResult) throws IOException {
+//        if (iTestResult.getStatus() == ITestResult.FAILURE) {
+//            String screenShotPath = BrowserUtils.getScreenshot(iTestResult.getName());
+//            test.fail(iTestResult.getName());
+//            test.addScreenCaptureFromPath(screenShotPath, "Failed");
+//            test.fail(iTestResult.getThrowable());
+//        }
+//
+//
 //        Driver.closeDriver();
 //    }
 //}
+
+    @AfterClass
+    public void tearDown(){
+        Driver.closeDriver();
+    }
+}

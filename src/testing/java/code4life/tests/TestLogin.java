@@ -5,6 +5,8 @@ import code4life.pages.LoginPage;
 import code4life.utilities.BrowserUtils;
 import code4life.utilities.ConfigurationReader;
 import code4life.utilities.Driver;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +18,10 @@ public class TestLogin extends TestBase {
     @Test
     public void testLoginFunctionality () throws IOException {
 
-        test = reports.createTest("verify login page ");
+        ExtentTest test = extent.createTest("Verify text box");
+        test.log(Status.PASS, "Text box passed");
+        test.pass("Text Box test passed with Test.pass");
+        test.info("Text box being tested test.info");
         String user = ConfigurationReader.getProperties("user");
         String pass = ConfigurationReader.getProperties("pass");
         System.out.println("username = " + user);
@@ -29,7 +34,7 @@ public class TestLogin extends TestBase {
         BrowserUtils.wait(2);
 
         //BrowserUtils.getScreenshot("Title");
-        String actual = "PRODUCT";
+        String actual = "PRODUCTS";
         Assert.assertEquals(actual, Driver.getDriver().findElement(By.xpath("//span[text()='Products']")).getText());
         test.pass("login test successfully passed ! ");
 

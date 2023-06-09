@@ -3,6 +3,7 @@ package code4life.pages;
 import code4life.base.BasePage;
 import code4life.utilities.Driver;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ElementsPage  extends BasePage {
-
+    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
 
     public ElementsPage() throws IOException {
     }
@@ -50,6 +51,7 @@ public class ElementsPage  extends BasePage {
     }
 
     public void clickSubmit() throws IOException {
+        executor.executeScript("window.scrollBy(0, 500)");
         wait.until(ExpectedConditions.elementToBeClickable(Driver.getDriver()
                 .findElement(submitBtn))).click();
     }

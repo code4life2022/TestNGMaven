@@ -19,6 +19,16 @@ public class Products extends BasePage {
 
     By cartItems = By.xpath("//div[@class='cart_item']");
 
+    By productsText = By.xpath("//span[text()='Products']");
+
+    public String returnProductText() throws IOException {
+    String text=    wait.until(ExpectedConditions.visibilityOf(Driver.getDriver().findElement(productsText))).getText();
+
+
+
+        return text;
+    }
+
     public Products() throws IOException {
     }
 
