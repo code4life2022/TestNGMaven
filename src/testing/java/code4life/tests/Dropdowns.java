@@ -45,6 +45,11 @@ public class Dropdowns {
         String actual ="Opel";
         if (expect.equals(actual)){
             System.out.println("TEST PASSED!!");
+            System.out.println("TEST PASSED!!");
+            System.out.println("TEST PASSED!!");
+            System.out.println("TEST PASSED!!");
+            System.out.println("TEST PASSED!!");
+            System.out.println("TEST PASSED!!");
         } else{
             System.out.println("TEST FAILED!!");
         }
