@@ -19,6 +19,7 @@ public class TabPage  extends BasePage {
     By menu = By.cssSelector("#react-burger-menu-btn");
     By about = By.id("about_sidebar_link");
 
+
     public TabPage() throws IOException {
     }
 
@@ -26,7 +27,28 @@ public class TabPage  extends BasePage {
     public void clickAboutButton() throws IOException {
         BrowserUtils.wait(2);
         wait.until(ExpectedConditions.elementToBeClickable(Driver.getDriver().findElement(about))).click();
-       // Driver.getDriver().findElement(about).click();
+       // New changes from the main branch 
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+          System.out.println("Today is Jun 8 ");
+          System.out.println("Today is Jun 8 ");
+          System.out.println("Today is Jun 8 ");
+          System.out.println("Today is Jun 8 ");
+          System.out.println("Today is Jun 8 ");
+          System.out.println("Today is Jun 8 ");
+          System.out.println("Today is Jun 8 ");
+           System.out.println("This is the third example for our demo ");
+            System.out.println("This is the third example for our demo ");
+            System.out.println("This is the third example for our demo ");
+            System.out.println("This is the third example for our demo ");
+            System.out.println("This is the third example for our demo ");
+            System.out.println("This is the third example for our demo ");
+            System.out.println("This is the third example for our demo ");
     }
 
 
