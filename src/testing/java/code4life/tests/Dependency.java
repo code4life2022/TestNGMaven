@@ -9,11 +9,20 @@ public class Dependency {
     public void openURL(){
         Assert.assertEquals(2, 2);
         System.out.println("Opening up the URL");
+        System.out.println("Opening up the URL");
+        System.out.println("Opening up the URL");
+        System.out.println("Opening up the URL");
+        System.out.println("Opening up the URL");
+        System.out.println("Opening up the URL");
     }
 
     @Test(dependsOnMethods = "openURL")
     public void login(){
         Assert.assertEquals(5, 5);
+        System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
         System.out.println("Logging into the website");
     }
 
