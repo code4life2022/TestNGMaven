@@ -19,6 +19,7 @@ public class TabPage  extends BasePage {
     By menu = By.cssSelector("#react-burger-menu-btn");
     By about = By.id("about_sidebar_link");
 
+
     public TabPage() throws IOException {
     }
 
@@ -27,6 +28,13 @@ public class TabPage  extends BasePage {
         BrowserUtils.wait(2);
         wait.until(ExpectedConditions.elementToBeClickable(Driver.getDriver().findElement(about))).click();
        // Driver.getDriver().findElement(about).click();
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
+        System.out.println("Branching demo for you sir ");
     }
 
 
