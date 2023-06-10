@@ -16,6 +16,13 @@ public class Products extends BasePage {
     By bikeLight = By.id("add-to-cart-sauce-labs-bike-light");
     By boldTShirt =By.id("add-to-cart-sauce-labs-bolt-t-shirt");
     By cart = By.id("shopping_cart_container");
+    
+    By st1 = By.id("add-to-cart-sauce-labs-backpack");
+    By st2 = By.id("add-to-cart-sauce-labs-bike-light");
+    By st3 =By.id("add-to-cart-sauce-labs-bolt-t-shirt");
+    By st4 = By.id("shopping_cart_container");
+    
+    
 
     By cartItems = By.xpath("//div[@class='cart_item']");
 
