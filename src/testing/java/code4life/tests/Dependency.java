@@ -15,6 +15,10 @@ public class Dependency {
     public void login(){
         Assert.assertEquals(5, 5);
         System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
+        System.out.println("Logging into the website");
     }
 
     @Test(dependsOnMethods = "login")
